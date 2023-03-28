@@ -1,3 +1,22 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Maven project-specific cache directory
+.mvn
+
+# Ignore build output directory
+build
+**/build
+target
+**/target
+
+# misc
+.DS_Store
+.idea/
+.env
+**/.env
+
+
 # Compiled class file
 *.class
 
