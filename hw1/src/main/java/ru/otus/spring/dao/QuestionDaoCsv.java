@@ -22,9 +22,9 @@ public class QuestionDaoCsv implements QuestionDao {
     public List<Question> getQuestionList() {
         List<Question> questionList = new ArrayList<>();
 
-        ClassPathResource resource = new ClassPathResource(csvPath);
+        var resource = new ClassPathResource(csvPath);
         try (InputStreamReader isr = new InputStreamReader(resource.getInputStream())) {
-            CSVParser parser = new CSVParser(isr, CSVFormat.DEFAULT);
+            var parser = new CSVParser(isr, CSVFormat.DEFAULT);
             parser.getRecords().stream().skip(1).forEach(rec -> {
                 questionList.add(Question.builder()
                         .title(rec.get(0))
