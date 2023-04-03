@@ -10,10 +10,10 @@ public class QuestionPrinterServiceImpl implements QuestionPrinterService {
 
     private final QuestionDao questionDao;
 
+    private final PrintStream out;
+
     @Override
     public void printQuestions() {
-        PrintStream out = System.out;
-
         questionDao.getQuestionList()
                 .forEach(q -> out.println(q.title()));
     }

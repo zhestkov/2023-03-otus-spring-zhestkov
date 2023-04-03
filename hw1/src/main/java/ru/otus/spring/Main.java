@@ -5,10 +5,8 @@ import ru.otus.spring.service.QuestionPrinterService;
 
 public class Main {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/spring-context.xml");
+        var ctx = new ClassPathXmlApplicationContext("/spring-context.xml");
         var printerService = ctx.getBean(QuestionPrinterService.class);
         printerService.printQuestions();
-
-        ctx.close();
     }
 }
