@@ -5,9 +5,12 @@
 .mvn
 
 # Ignore build output directory
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 build
 **/build
-target
 **/target
 
 # misc
@@ -15,6 +18,7 @@ target
 .idea/
 .env
 **/.env
+*.iml
 
 
 # Compiled class file
