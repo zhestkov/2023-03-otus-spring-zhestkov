@@ -1,13 +1,11 @@
 package ru.otus.spring.hw2.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ru.otus.spring.hw2.dao.QuestionDao;
 import ru.otus.spring.hw2.domain.Question;
 import ru.otus.spring.hw2.domain.User;
 
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -50,6 +48,7 @@ public class QuizServiceImpl implements QuizService {
     }
 
     private String getSummary(User user, int totalQuestions) {
-        return String.format("User %s answered correctly questions: %d of %d", user.fullName(), user.getCntCorrectAnswers(), totalQuestions);
+        return String.format("User %s answered correctly questions: %d of %d",
+                user.fullName(), user.getCntCorrectAnswers(), totalQuestions);
     }
 }
