@@ -24,22 +24,22 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public void startQuiz() {
         var user = greetingUser();
-        var questionList = questionDao.getQuestionList();
+        var questionList = questionDao.findAll();
         for (var q : questionList) {
-            String answer = ioService.readStringWithPrompt(q.title());
+            String answer = ioService.readLineWithPrompt(q.title());
             if (validateAnswer(answer, q)) {
                 user.incrementCorrectAnswers();
             }
         }
 
         var summary = getSummary(user, questionList.size());
-        ioService.printString(summary);
+        ioService.print(summary);
     }
 
     private User greetingUser() {
-        ioService.printString(GREETINGS);
-        String firstName = ioService.readStringWithPrompt(ASK_FIRSTNAME);
-        String lastName = ioService.readStringWithPrompt(ASK_LASTNAME);
+        ioService.print(GREETINGS);
+        String firstName = ioService.readLineWithPrompt(ASK_FIRSTNAME);
+        String lastName = ioService.readLineWithPrompt(ASK_LASTNAME);
         return User.createUser(firstName, lastName);
     }
 

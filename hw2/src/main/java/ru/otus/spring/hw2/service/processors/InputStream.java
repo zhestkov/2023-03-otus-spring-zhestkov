@@ -2,7 +2,7 @@ package ru.otus.spring.hw2.service.processors;
 
 public interface InputStream {
 
-    String readString();
+    String readLine();
 
-    String readStringWithPrompt(String prompt);
+    String readLineWithPrompt(String prompt);
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import ru.otus.spring.hw2.domain.Question;
+import ru.otus.spring.hw2.domain.exception.CsvReadException;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -22,7 +23,7 @@ public class QuestionDaoCsv implements QuestionDao {
     }
 
     @Override
-    public List<Question> getQuestionList() {
+    public List<Question> findAll() {
         List<Question> questionList = new ArrayList<>();
 
         var resource = new ClassPathResource(csvFilename);
@@ -35,7 +36,7 @@ public class QuestionDaoCsv implements QuestionDao {
                         .build());
             });
         } catch (IOException ex) {
-            System.out.println("InputStreamReader exception:" + ex);
+            throw new CsvReadException("Unable to read csv file");
         }
 
         return questionList;

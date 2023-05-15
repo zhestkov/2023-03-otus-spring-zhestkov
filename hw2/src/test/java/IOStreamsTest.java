@@ -23,7 +23,7 @@ class IOStreamsTest {
         var is = new ByteArrayInputStream("answer".getBytes(StandardCharsets.UTF_8));
         var strToPrint = "test prompt";
         var ioService = new IOServiceStreams(outputStream, is);
-        ioService.printString(strToPrint);
+        ioService.print(strToPrint);
         verify(outputStream, times(1)).println(strToPrint);
 
     }
@@ -31,8 +31,8 @@ class IOStreamsTest {
     public void testReadStringWithPrompt() {
         var is = new ByteArrayInputStream("line1\nline2".getBytes(StandardCharsets.UTF_8));
         var ioService = new IOServiceStreams(outputStream, is);
-        Assertions.assertEquals("line1", ioService.readStringWithPrompt("prompt1"));
-        Assertions.assertEquals("line2", ioService.readStringWithPrompt("prompt2"));
+        Assertions.assertEquals("line1", ioService.readLineWithPrompt("prompt1"));
+        Assertions.assertEquals("line2", ioService.readLineWithPrompt("prompt2"));
 
     }
 }

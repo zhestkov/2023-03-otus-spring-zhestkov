@@ -17,18 +17,18 @@ public class IOServiceStreams implements IOService {
     }
 
     @Override
-    public String readString() {
+    public String readLine() {
         return input.nextLine();
     }
 
     @Override
-    public String readStringWithPrompt(String prompt) {
-        printString(prompt);
-        return readString();
+    public String readLineWithPrompt(String prompt) {
+        print(prompt);
+        return readLine();
     }
 
     @Override
-    public void printString(String s) {
+    public void print(String s) {
         output.println(s);
     }
 }
